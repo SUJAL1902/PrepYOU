@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const HomeNavbar = () => {
   const navigate = useNavigate();
 
   return (
     <nav style={styles.nav}>
-      <h2 style={styles.h2}>PrepYOU</h2>
+      <h2 style={styles.logo}>PrepYOU</h2>
 
       <div>
         <button
@@ -16,7 +16,10 @@ const Navbar = () => {
           Login
         </button>
 
-        <button style={styles.signup}>
+        <button
+          style={styles.signup}
+          onClick={() => navigate("/login")}
+        >
           Get Started
         </button>
       </div>
@@ -25,30 +28,33 @@ const Navbar = () => {
 };
 
 const styles = {
-  h2:{
-    color:"#4f46e5",
-  },
   nav: {
     display: "flex",
     justifyContent: "space-between",
     padding: "15px 30px",
+    background: "#fff",
     borderBottom: "1px solid #ddd",
-    width:"100%",
-    background:"#fff"
   },
+
+  logo: {
+    color: "#4f46e5",
+  },
+
   login: {
     marginRight: "10px",
-    background: "none",
     border: "none",
+    background: "none",
     cursor: "pointer",
   },
+
   signup: {
-    backgroundColor: "#4f46e5",
+    background: "#4f46e5",
     color: "#fff",
     border: "none",
     padding: "8px 15px",
     borderRadius: "6px",
+    cursor: "pointer",
   },
 };
 
-export default Navbar;
+export default HomeNavbar;
